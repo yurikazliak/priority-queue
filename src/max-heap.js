@@ -30,7 +30,7 @@ class MaxHeap {
 		let detachedRoot = this.root;
 		this.root = null;
 		if (this.parentNodes[this.parentNodes.indexOf(detachedRoot)]) {
-			this.parentNodes.shift();
+			this.parentNodes.splice(this.parentNodes.indexOf(detachedRoot), 1);
 		} else;
 		return detachedRoot;
 	}
@@ -80,28 +80,27 @@ class MaxHeap {
 					} else if (parentOfLastNode.right == lastInsertedNode) {
 						parentOfLastNode.right = null;
 					} else return;
-				}
-			} 
+				} else return;
 
 
-
-			if (this.parentNodes[this.parentNodes.indexOf(detached)]) {
-				this.parentNodes.shift();
-			} else if (!this.parentNodes[this.parentNodes.indexOf(detached)]) {
-				if (inclosureCount === 3) {
-					let newRootNode = this.parentNodes[1];
-					let swappedNode = this.parentNodes[0];
-					this.parentNodes[1] = swappedNode;
-					this.parentNodes[0] = newRootNode;
-				} else if (inclosureCount > 3) {
-					if (inclosureCount % 2 == 0) {
-						this.parentNodes.pop();
-					} else if (inclosureCount % 2 != 0) {
-						this.parentNodes.pop();
-						this.parentNodes.unshift(parentOfLastNode);
+				if (this.parentNodes[this.parentNodes.indexOf(detached)]) {
+					this.parentNodes.shift();
+				} else if (!this.parentNodes[this.parentNodes.indexOf(detached)]) {
+					if (inclosureCount === 3) {
+						let newRootNode = this.parentNodes[1];
+						let swappedNode = this.parentNodes[0];
+						this.parentNodes[1] = swappedNode;
+						this.parentNodes[0] = newRootNode;
+					} else if (inclosureCount > 3) {
+						if (inclosureCount % 2 == 0) {
+							this.parentNodes.pop();
+						} else if (inclosureCount % 2 != 0) {
+							this.parentNodes.pop();
+							this.parentNodes.unshift(parentOfLastNode);
+						}
 					}
 				}
-			}
+			} else return;
 		}
 	}
 
