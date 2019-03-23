@@ -100,6 +100,11 @@ class Node {
 				}
 				leftChild.right = thisRightFirst;
 				leftChild.left = thisLeftFirst;
+				if (thisLeftFirst != null) {
+					thisLeftFirst.parent = leftChild;
+				} else if (thisRightFirst != null) {
+					thisRightFirst.parent = leftChild;
+				}
 			} else if (leftChild.right == this) {
 				let left = leftChild.left;
 				let thisRightFirst = this.right;
@@ -114,6 +119,11 @@ class Node {
 				}
 				leftChild.right = thisRightFirst;
 				leftChild.left = thisLeftFirst;
+				if (thisLeftFirst != null) {
+					thisLeftFirst.parent = leftChild;
+				} else if (thisRightFirst != null) {
+					thisRightFirst.parent = leftChild;
+				}
 			} else if (rightChild.left == this) {
 				let right = rightChild.right;
 				let thisRightFirst = this.right;
@@ -128,6 +138,11 @@ class Node {
 				}
 				rightChild.right = thisRightFirst;
 				rightChild.left = thisLeftFirst;
+				if (thisLeftFirst != null) {
+					thisLeftFirst.parent = rightChild;
+				} else if (thisRightFirst != null) {
+					thisRightFirst.parent = rightChild;
+				}
 			} else if (rightChild.right == this) {
 				let left = rightChild.left;
 				let thisRightFirst = this.right;
@@ -142,6 +157,11 @@ class Node {
 				}
 				rightChild.right = thisRightFirst;
 				rightChild.left = thisLeftFirst;
+				if (thisLeftFirst != null) {
+					thisLeftFirst.parent = rightChild;
+				} else if (thisRightFirst != null) {
+					thisRightFirst.parent = rightChild;
+				}
 			}
 		}
 	}
