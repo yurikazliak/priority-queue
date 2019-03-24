@@ -82,7 +82,6 @@ class MaxHeap {
 					} else return;
 				} else return;
 
-
 				if (this.parentNodes[this.parentNodes.indexOf(detached)]) {
 					this.parentNodes.shift();
 				} else if (!this.parentNodes[this.parentNodes.indexOf(detached)]) {
@@ -138,8 +137,7 @@ class MaxHeap {
 	insertNode(node) {
 		if (this.root == null) {
 			this.root = node;
-		}
-		else if (this.root != null) {
+		} else if (this.root != null) {
 			this.parentNodes[0].appendChild(node);
 		}
 		let size = this.size();

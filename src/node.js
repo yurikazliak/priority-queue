@@ -5,7 +5,6 @@ class Node {
 		this.parent = null;
 		this.left = null;
 		this.right = null;
-
 	}
 
 	appendChild(node) {
